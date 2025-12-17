@@ -1,1 +1,188 @@
-/* You can add global styles to this file, and also import other style files */
+/* =================================================================
+   VARIABLES GLOBALES PERSONALIZADAS
+   ================================================================= */
+$primary-blue: #007ad9; // Azul principal para PrimeNG
+$primary-red: #FF0000;  // Rojo que ya usas para Danger
+$warning-orange: #f59e0b; // Naranja para editar
+$text-color: #333333;
+$border-light: #e0e0e0;
+$header-bg: #f4f5f7; // Fondo ligero para encabezados
+
+
+/* =================================================================
+   RESET Y FUENTES (Tus estilos existentes)
+   ================================================================= */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-sizing: border-box; /* Añadido para mejor manejo de layout */
+}
+
+/* =================================================================
+   COMPONENTES EXISTENTES Y PERSONALIZACIÓN DE PRIME
+   ================================================================= */
+
+/* --- Estilos Generales de Contenedores --- */
+.card {
+  /* Contenedor principal de tu listado de clientes */
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave para elevación */
+  margin: 20px;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $text-color;
+  margin-bottom: 20px;
+}
+
+/* --- Input de Búsqueda --- */
+.p-input-icon-left .p-inputtext {
+  /* Asegura que el input tenga buen tamaño */
+  height: 40px; 
+  padding-left: 2.5rem; 
+  border-color: $border-light;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 217, 0.25);
+  }
+}
+
+.p-input-icon-left i {
+  /* Posición del icono de búsqueda */
+  left: 0.8rem !important; 
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #999;
+}
+
+
+/* --- Botones (Añadido estilo para Warning, basado en tu Danger) --- */
+
+/* Botón Nuevo Cliente (Default) */
+.p-button {
+  background: $primary-blue;
+  border: 1px solid $primary-blue;
+  transition: background-color 0.2s, border-color 0.2s;
+  
+  &:hover {
+    background: darken($primary-blue, 10%);
+    border-color: darken($primary-blue, 10%);
+  }
+}
+
+/* Botón Danger (Tu estilo existente) */
+.p-button.p-button-danger {
+  color: #ffffff;
+  background: $primary-red;
+  border: 1px solid $primary-red;
+}
+.p-button.p-button-danger:not(:disabled):hover {
+  background: darken($primary-red, 10%);
+  border-color: darken($primary-red, 10%);
+}
+
+/* Botón Warning (Necesario para el ícono de lápiz en la tabla) */
+.p-button.p-button-warning {
+  color: #ffffff;
+  background: $warning-orange;
+  border: 1px solid $warning-orange;
+  
+  &:hover {
+    background: darken($warning-orange, 10%);
+    border-color: darken($warning-orange, 10%);
+  }
+}
+
+/* --- Tamaño y forma de Botones (Tus estilos existentes) --- */
+.p-button.p-button-sm {
+  width: 2rem !important;
+  height: 2rem !important;
+  font-size: 0.875rem;
+  padding: 0.75rem 0 !important;
+  margin: 0 4px; /* Añade un pequeño margen entre botones de acción */
+}
+
+/* =================================================================
+   ESTILOS DE LA TABLA (p-table)
+   ================================================================= */
+
+/* Encabezado de la Tabla */
+.p-datatable .p-datatable-header {
+  background: $header-bg;
+  color: $text-color;
+  border: 1px solid $border-light;
+  border-bottom: none;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+/* Celdas del Encabezado (TH) */
+.p-datatable .p-datatable-thead > tr > th {
+  background: $header-bg;
+  color: $text-color;
+  font-weight: 600;
+  border: 1px solid $border-light;
+  border-width: 0 0 1px 0; /* Solo borde inferior */
+  padding: 1rem 0.75rem;
+  text-align: left;
+}
+
+/* Celdas del Cuerpo (TD) */
+.p-datatable .p-datatable-tbody > tr > td {
+  border: 1px solid $border-light;
+  border-width: 0 0 1px 0; /* Solo borde inferior */
+  padding: 0.75rem 0.75rem;
+  color: $text-color;
+}
+
+/* Filas con efecto hover */
+.p-datatable .p-datatable-tbody > tr:not(.p-highlight):hover {
+  background: $header-bg; /* Mismo color que el encabezado, suave */
+  transition: background-color 0.2s;
+}
+
+/* Paginador */
+.p-paginator {
+  background: $header-bg;
+  border: 1px solid $border-light;
+  border-top: none;
+  border-radius: 0 0 8px 8px; /* Redondear solo abajo */
+}
+
+/* =================================================================
+   ESTILOS DEL DIÁLOGO (p-dialog) y Formulario
+   ================================================================= */
+
+/* Campo de formulario (Para tu p-fluid) */
+.p-fluid .p-field {
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs dentro del Diálogo */
+.p-dialog .p-inputtext,
+.p-dialog .p-inputtextarea {
+    width: 100%;
+    border-color: $border-light;
+    
+    &:focus {
+        border-color: $primary-blue;
+    }
+}
+
+/* Footer del Diálogo */
+.p-dialog .p-dialog-footer {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border-top: 1px solid $border-light;
+}
+
+/* Footer Botones */
+.p-dialog .p-dialog-footer .p-button {
+  margin-left: 0.5rem;
+}

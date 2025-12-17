@@ -1,0 +1,27 @@
+/* Estilos para el Sidebar/Drawer */
+
+/* Contenedor del footer para posicionar los botones */
+.p-sidebar .p-sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--surface-border, #e0e0e0);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--surface-card, #ffffff);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Encabezado dentro del Sidebar */
+.sidebar-header {
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+    h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+/* Ajuste del p-fluid dentro del sidebar */
+.p-sidebar .p-fluid {
+    padding: 1rem 1.5rem;
+}
