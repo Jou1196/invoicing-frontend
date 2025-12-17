@@ -1,27 +1,100 @@
-# FrontendApp
+# Invoicing Frontend (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+Este es el frontend del sistema de facturación (**Invoicing**), construido con **Angular 17**. La aplicación permite gestionar clientes, productos y facturas de manera integrada con el backend de Spring Boot.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🛠️ Tecnologías Usadas
 
-## Code scaffolding
+- **Angular 17** (Componentes Standalone o Módulos según prefieras).  
+- **Bootstrap 5** para estilos y diseño.  
+- **RxJS** para manejo de flujos de datos asíncronos.  
+- **HttpClientModule** para consumo de servicios REST.  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📋 Prerrequisitos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Antes de comenzar, asegúrate de tener instalado:
 
-## Running unit tests
+- **Node.js** (Versión 18 o superior recomendada).
+- **Angular CLI**:  
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## ⚙️ Instalación y Configuración
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 1. Clonar el repositorio
 
-## Further help
+```bash
+git clone https://github.com/Jou1196/invoicing-frontend.git
+cd invoicing-frontend
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 2. Instalar dependencias
+
+```bash
+npm install
+```
+
+### 3. Configurar el entorno
+
+Asegúrate de que la URL del backend apunte a tu servidor local de Spring Boot. Edita el archivo `src/environments/environment.ts` con la siguiente configuración:
+
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080/api'
+};
+```
+
+---
+
+## 🚀 Ejecución de la Aplicación
+
+### Iniciar servidor de desarrollo
+
+Ejecuta el siguiente comando para levantar la aplicación:
+
+```bash
+ng serve -o
+```
+
+La aplicación se abrirá automáticamente en: `http://localhost:4200`.
+
+---
+
+## 🏗️ Estructura del Proyecto
+
+### **Módulos principales:**
+
+- **Models**: Interfaces de TypeScript (`Invoice`, `Customer`, `Product`) que reflejan las entidades del backend.  
+- **Services**: Contiene la lógica de comunicación HTTP. Ejemplo: `InvoiceService` con soporte para paginación.  
+- **Components**:
+  - **InvoiceList**: Tabla paginada con filtros de búsqueda.  
+  - **InvoiceForm**: Formulario dinámico (ReactiveForms) para crear facturas.  
+- **Guards/Interceptors**: Manejo de seguridad JWT para proteger rutas y adjuntar el token automáticamente en cada petición.  
+
+---
+
+## 📦 Despliegue (Build)
+
+Para generar los archivos de producción ejecuta:
+
+```bash
+ng build --configuration production
+```
+
+Los archivos se generarán en la carpeta `dist/`.
+
+---
+
+## 🤝 Conexión con el Backend
+
+Para que el frontend funcione correctamente:
+
+1. **El Backend de Spring Boot debe estar corriendo en el puerto `8080`.**  
+2. El archivo `docker-compose.yml` del backend debe tener activos los servicios de **PostgreSQL** y **RabbitMQ**.  
